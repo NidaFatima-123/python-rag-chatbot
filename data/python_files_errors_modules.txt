@@ -1,0 +1,41 @@
+PYTHON FILE HANDLING, EXCEPTION HANDLING, MODULES AND PACKAGES
+
+File handling
+Use open(filename, mode) to work with files. Modes: "r" read (default), "w" write (erases existing content), "a" append, "x" create new, and add "b" for binary files. Always use the with statement because it closes the file automatically, even if an error happens.
+
+with open("notes.txt", "w", encoding="utf-8") as f:
+    f.write("Hello file\n")
+
+with open("notes.txt", "r", encoding="utf-8") as f:
+    content = f.read()          # whole file as one string
+
+Reading methods: read() returns everything, readline() returns one line, readlines() returns a list of lines. You can also loop: for line in f: print(line.strip()). The pathlib module offers modern path handling: Path("notes.txt").read_text(). A FileNotFoundError is raised when the file does not exist.
+
+Exception handling
+An exception is an error that happens while the program runs. Handle it with try and except so the program does not crash.
+
+try:
+    number = int(input("Number: "))
+    print(10 / number)
+except ValueError:
+    print("That was not a number")
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+else:
+    print("No errors")          # runs only if no exception happened
+finally:
+    print("Always runs")        # cleanup code
+
+Common exceptions: ValueError (right type, bad value), TypeError (wrong type), ZeroDivisionError, IndexError (index out of range), KeyError (missing dictionary key), FileNotFoundError, NameError (name not defined), AttributeError, ImportError, IndentationError and SyntaxError. Use raise to trigger an exception yourself: raise ValueError("Age cannot be negative"). You can define custom exceptions by inheriting from Exception.
+
+Reading a traceback
+Python prints the traceback with the most recent call last. Read the last line first: it shows the exception type and message. The lines above show the file and line number where it happened.
+
+Modules
+A module is a Python file that contains code you can reuse. Import it with import math, use a name with from math import sqrt, or give it an alias with import numpy as np. The standard library includes math, random, datetime, os, sys, json, csv and collections. Install third-party packages with pip install package_name.
+
+Creating your own module
+Save functions in helpers.py, then write import helpers in another file in the same folder and call helpers.my_function(). The special variable __name__ equals "__main__" when a file is run directly, so code under if __name__ == "__main__": does not run on import.
+
+Packages
+A package is a folder of modules, normally containing a file named __init__.py. Import from it with from mypackage import mymodule. Use a virtual environment (python -m venv venv) to keep project libraries separate.

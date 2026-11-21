@@ -1,0 +1,30 @@
+PYTHON LIBRARIES: NUMPY, PANDAS AND BASIC DATA SCIENCE
+
+Python libraries
+A library is a collection of ready-made modules. Popular ones: NumPy (fast numerical arrays), Pandas (tables and data analysis), Matplotlib (charts), scikit-learn (machine learning), Requests (HTTP) and Streamlit (web apps). Install with pip install numpy pandas matplotlib.
+
+NumPy
+NumPy provides the ndarray, a fast multi-dimensional array whose items all have the same type. Import it with import numpy as np.
+
+import numpy as np
+a = np.array([1, 2, 3, 4])
+print(a * 2)            # [2 4 6 8]  operations apply to every element (vectorisation)
+m = np.array([[1, 2], [3, 4]])
+print(m.shape)          # (2, 2)
+
+Useful functions: np.zeros((2, 3)), np.ones(3), np.arange(0, 10, 2), np.linspace(0, 1, 5), np.random.rand(3), a.mean(), a.sum(), a.max(), a.std(), a.reshape(2, 2). Boolean indexing filters data: a[a > 2] gives [3 4]. NumPy arrays are much faster than Python lists for numeric work because operations run in compiled code.
+
+Pandas
+Pandas has two main structures: Series (one column of labelled data) and DataFrame (a table with rows and columns). Import it with import pandas as pd.
+
+import pandas as pd
+df = pd.DataFrame({"name": ["Ali", "Sara", "Omar"], "marks": [78, 91, 64]})
+print(df.head())                 # first rows
+print(df["marks"].mean())        # average of a column
+print(df[df["marks"] > 70])      # filter rows
+df["passed"] = df["marks"] >= 65 # add a new column
+
+Reading data: pd.read_csv("data.csv"), pd.read_excel("data.xlsx"). Inspect data with df.head(), df.info(), df.describe(), df.shape and df.columns. Select with df["col"], df.loc[row_label, col] (by label) and df.iloc[row_number, col_number] (by position). Clean data with df.isnull().sum(), df.dropna(), df.fillna(0) and df.drop_duplicates(). Summarise with df.groupby("city")["sales"].sum() and sort with df.sort_values("marks", ascending=False).
+
+Basic data science workflow
+1. Define the question. 2. Collect data. 3. Clean data (missing values, duplicates, wrong types). 4. Explore it with statistics and charts. 5. Build a model or draw conclusions. 6. Communicate the results. Matplotlib makes charts: import matplotlib.pyplot as plt; plt.plot(x, y); plt.show(). Machine learning libraries such as scikit-learn split data into training and test sets to check how well a model works on unseen data.

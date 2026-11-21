@@ -1,0 +1,22 @@
+PYTHON COLLECTIONS: LISTS, TUPLES, DICTIONARIES AND SETS
+
+Lists
+A list is an ordered, changeable (mutable) collection written with square brackets: numbers = [10, 20, 30]. It can hold mixed types and allows duplicates. Indexing starts at 0 and negative indexes count from the end. Slicing: numbers[1:3] gives [20, 30].
+Common methods: append(x) adds one item at the end, insert(i, x) inserts at a position, extend(other) adds many items, remove(x) deletes the first matching value, pop() removes and returns the last item (or pop(i) for position i), sort() sorts in place, reverse() reverses in place, index(x) finds a position, count(x) counts occurrences. The built-in sorted(list) returns a new sorted list. len(), sum(), min() and max() work on lists.
+
+Tuples
+A tuple is an ordered, unchangeable (immutable) collection written with parentheses: point = (3, 4). A tuple with one item needs a trailing comma: (5,). Because tuples cannot change they are safe for fixed data, are slightly faster than lists, and can be used as dictionary keys. Unpacking assigns items to names: x, y = point.
+List versus tuple: use a list when the data will change and a tuple when it should stay fixed. Lists are mutable; tuples are immutable.
+
+Dictionaries
+A dictionary stores key-value pairs inside curly braces: student = {"name": "Hira", "age": 21}. Keys must be unique and immutable (strings, numbers, tuples). Access with student["name"] or the safer student.get("grade", "N/A"), which returns a default instead of raising KeyError. Add or update with student["age"] = 22. Remove with pop(key) or del student[key].
+Useful methods: keys(), values(), items(). Loop with: for key, value in student.items(). Dictionary comprehension: {n: n * n for n in range(4)}. Since Python 3.7 dictionaries keep insertion order.
+
+Sets
+A set is an unordered collection of unique items: colors = {"red", "green", "blue"}. Duplicates are removed automatically, and items cannot be accessed by index. Create an empty set with set(), because {} makes an empty dictionary. Methods: add(x), remove(x), discard(x) (no error if missing). Set operations: union a | b, intersection a & b, difference a - b, symmetric difference a ^ b. Sets are ideal for removing duplicates: list(set(items)) and for fast membership tests.
+
+Choosing a collection
+List: ordered and changeable. Tuple: ordered and fixed. Dictionary: look up values by key. Set: unique values and set maths.
+
+Copying
+Assigning b = a for a list does not copy it; both names point to the same list. Use b = a.copy() or b = a[:] for a shallow copy.

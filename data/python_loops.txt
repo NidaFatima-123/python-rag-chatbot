@@ -1,0 +1,52 @@
+PYTHON LOOPS
+
+What is a loop?
+A loop repeats a block of code. Python has two loop statements: for and while.
+
+The for loop
+A for loop goes through every item of a sequence such as a list, string, tuple, dictionary or range.
+
+fruits = ["apple", "banana", "mango"]
+for fruit in fruits:
+    print(fruit)
+
+The range() function
+range(stop) produces numbers from 0 up to stop - 1. range(start, stop) begins at start. range(start, stop, step) moves by step. Examples: range(5) gives 0,1,2,3,4. range(2, 10, 2) gives 2,4,6,8. range(5, 0, -1) counts down 5,4,3,2,1.
+
+for i in range(1, 4):
+    print(i)      # prints 1, 2, 3
+
+The while loop
+A while loop keeps running as long as its condition is True. Make sure something inside the loop eventually makes the condition False, otherwise you get an infinite loop.
+
+count = 3
+while count > 0:
+    print(count)
+    count -= 1
+
+break, continue and else
+break stops the loop immediately. continue skips the rest of the current iteration and moves to the next one. A loop can have an else block that runs only when the loop finished without hitting break.
+
+for n in range(10):
+    if n == 3:
+        continue      # skip 3
+    if n == 6:
+        break         # stop at 6
+    print(n)          # 0 1 2 4 5
+
+enumerate and zip
+enumerate(items) gives (index, item) pairs: for i, name in enumerate(["a", "b"]): print(i, name). zip(a, b) walks through two sequences together: for x, y in zip([1, 2], ["one", "two"]).
+
+Nested loops
+A loop inside another loop is a nested loop. The inner loop completes fully for every step of the outer loop. Nested loops are used for tables and patterns.
+
+for row in range(1, 4):
+    for col in range(1, 4):
+        print(row * col, end=" ")
+    print()
+
+List comprehensions
+A list comprehension builds a list in one line: squares = [x * x for x in range(5)] gives [0, 1, 4, 9, 16]. You can add a condition: evens = [x for x in range(10) if x % 2 == 0].
+
+Common mistakes
+Forgetting the colon after for or while, wrong indentation, changing a list while looping over it, and writing a while loop that never ends.

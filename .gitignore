@@ -1,0 +1,7 @@
+.env
+vectorstore/*
+!vectorstore/.gitkeep
+uploads/*
+!uploads/.gitkeep
+__pycache__/
+venv/

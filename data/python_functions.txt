@@ -1,0 +1,44 @@
+PYTHON FUNCTIONS
+
+What is a function?
+A function is a named, reusable block of code. Functions avoid repetition and make programs easier to read and test. You define one with the def keyword and call it by writing its name followed by parentheses.
+
+def greet(name):
+    return f"Hello, {name}!"
+
+message = greet("Ali")
+print(message)    # Hello, Ali!
+
+Parameters and arguments
+Parameters are the names in the definition; arguments are the actual values you pass in. Positional arguments are matched by order. Keyword arguments are matched by name: greet(name="Ali"). Default parameter values make an argument optional: def power(base, exp=2): return base ** exp. Parameters with defaults must come after parameters without defaults.
+
+return versus print
+return sends a value back to the caller so you can store or reuse it. print only displays text. A function without a return statement returns None. A function can return several values as a tuple: return a, b.
+
+*args and **kwargs
+*args collects extra positional arguments into a tuple. **kwargs collects extra keyword arguments into a dictionary.
+
+def total(*numbers):
+    return sum(numbers)
+
+print(total(1, 2, 3))   # 6
+
+Scope
+Variables created inside a function are local and disappear when the function ends. Variables created outside are global. To change a global variable inside a function you must use the global keyword, but it is usually better to pass values in and return results.
+
+Lambda functions
+A lambda is a small anonymous function written in one line: square = lambda x: x * x. They are often used with sorted(), map() and filter(): sorted(words, key=lambda w: len(w)).
+
+Recursion
+A recursive function calls itself. It needs a base case that stops the recursion.
+
+def factorial(n):
+    if n <= 1:
+        return 1
+    return n * factorial(n - 1)
+
+Docstrings
+A string placed as the first line inside a function describes what it does. Use help(function_name) to read it.
+
+Common errors
+TypeError: missing required positional argument means you passed too few arguments. UnboundLocalError happens when you assign to a variable inside a function that you also use as global before assigning. Forgetting return gives None.

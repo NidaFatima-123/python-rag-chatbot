@@ -1,0 +1,34 @@
+PYTHON BASICS: INTRODUCTION, VARIABLES, DATA TYPES, OPERATORS, CONDITIONALS AND STRINGS
+
+Introduction to Python
+Python is a high-level, interpreted, general-purpose programming language created by Guido van Rossum and first released in 1991. It is known for readable code that uses indentation (usually 4 spaces) instead of curly braces to mark blocks. Python is used for web development, automation, data science, machine learning and scripting. You run a script with the command: python script.py. The built-in function print() shows output on the screen.
+
+Variables
+A variable is a name that refers to a value. You create it by assignment, and you do not declare a type: name = "Ayesha", age = 20, price = 9.99. Python is dynamically typed, so the same name can later refer to a value of another type. Variable names may contain letters, digits and underscores, cannot start with a digit, are case-sensitive, and cannot be keywords such as for or if. The convention for names is snake_case, for example total_marks.
+
+Data types
+The common built-in types are int (whole numbers like 5), float (decimal numbers like 3.14), str (text), bool (True or False), list, tuple, dict and set. Use type(x) to see the type of x. Type conversion functions are int(), float(), str() and bool(). For example int("42") gives 42 and str(3.5) gives "3.5". The special value None means "no value". The input() function always returns a string, so convert it with int() when you need a number.
+
+Operators
+Arithmetic operators: + addition, - subtraction, * multiplication, / division (always returns a float), // floor division, % remainder (modulo), ** power. Example: 7 // 2 is 3, 7 % 2 is 1, 2 ** 3 is 8.
+Comparison operators: ==, !=, >, <, >=, <= return True or False.
+Logical operators: and, or, not combine conditions.
+Assignment operators: =, +=, -=, *=, /= (x += 1 means x = x + 1).
+Membership operators: in and not in check whether a value is inside a sequence. Identity operators: is and is not check whether two names refer to the same object.
+
+Conditional statements
+Use if, elif and else to make decisions. Only the first true branch runs.
+
+marks = 72
+if marks >= 80:
+    grade = "A"
+elif marks >= 60:
+    grade = "B"
+else:
+    grade = "C"
+print(grade)   # B
+
+A conditional expression is a one-line form: status = "pass" if marks >= 50 else "fail". The values 0, 0.0, "", [], {}, set() and None are treated as False in conditions; most other values are True.
+
+Strings
+A string is a sequence of characters written in single or double quotes. Triple quotes allow multi-line text. Strings are immutable, which means you cannot change a character in place; methods return a new string. Indexing starts at 0: "Python"[0] is "P" and "Python"[-1] is "n". Slicing uses [start:stop], so "Python"[0:2] is "Py". Useful methods: upper(), lower(), strip(), split(), join(), replace(), find(), startswith(), endswith(). len(text) gives the length. Formatting is easiest with f-strings: name = "Sara"; print(f"Hello {name}!").

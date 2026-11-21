@@ -1,0 +1,50 @@
+PYTHON OBJECT-ORIENTED PROGRAMMING (OOP)
+
+Classes and objects
+A class is a blueprint that describes data (attributes) and behaviour (methods). An object, also called an instance, is a concrete thing created from a class. Define a class with the class keyword and create objects by calling the class like a function.
+
+class Student:
+    school = "Python Academy"          # class attribute shared by all objects
+
+    def __init__(self, name, marks):   # constructor runs when an object is created
+        self.name = name               # instance attributes
+        self.marks = marks
+
+    def is_passing(self):
+        return self.marks >= 50
+
+s1 = Student("Sana", 82)
+print(s1.name, s1.is_passing())        # Sana True
+
+The __init__ method and self
+__init__ is the constructor. self is the first parameter of every instance method and refers to the object itself. Python passes it automatically, so you do not write it when calling the method.
+
+Special (dunder) methods
+Methods with double underscores customise behaviour. __str__ returns the readable text shown by print(). __repr__ returns a developer-friendly representation. __len__ lets len() work on your object.
+
+Inheritance
+Inheritance lets a child class reuse and extend a parent class. The child gets all parent attributes and methods and can add or override them. super() calls the parent's version.
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        return f"{self.name} is speaking"
+
+class Teacher(Person):
+    def __init__(self, name, subject):
+        super().__init__(name)
+        self.subject = subject
+    def speak(self):                    # method overriding
+        return f"{self.name} teaches {self.subject}"
+
+Types of inheritance include single inheritance (one parent), multiple inheritance (several parents, class C(A, B)) and multilevel inheritance (a chain of parents).
+
+The four OOP pillars
+Encapsulation: keep data and the methods that use it together, and protect internal data. By convention a single leading underscore (_balance) means "internal" and a double underscore (__balance) triggers name mangling.
+Abstraction: hide complex details behind a simple interface.
+Inheritance: reuse code from a parent class.
+Polymorphism: different classes can have the same method name, and the right one runs depending on the object (for example speak() on a Person and a Teacher).
+
+Class methods and static methods
+@classmethod receives the class as cls and is often used for alternative constructors. @staticmethod receives neither self nor cls and is just a function grouped inside the class. @property turns a method into an attribute you read without parentheses.
